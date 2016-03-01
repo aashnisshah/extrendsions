@@ -1,0 +1,17 @@
+body {
+  background: #D48C6A;
+  min-width: 250px;
+  min-height: 200px;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+}
+
+a {
+  color: #74132B;
+}
+
+h2 {
+  color: #003925;
+}
+
