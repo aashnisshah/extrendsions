@@ -6,7 +6,7 @@ var settings = {
 
 document.addEventListener('DOMContentLoaded', function() {
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'http://api.whatthetrend.com/api/v2/trends.json');
+	xhr.open('GET', 'http://api.whatthetrend.com/api/v2/trends/locations/top.json?place_type_code=12');
 	xhr.send();
 	xhr.onload = function() {
 	    var json = xhr.responseText;                         // Response
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	    json = JSON.parse(json);                             // Parse JSON
 	    
 	    // process the data and display the information
-		console.log(json);
 		var selected_trend = process(json);
 		display(selected_trend);
 
@@ -43,17 +42,20 @@ function display(trend) {
 		var trendName = document.getElementById('trend-name');
 		trendName.innerText = trend.name;
 
-		if(trend.category_name) {
-			var trendCategory = document.getElementById('trend-category');
-			trendCategory.innerText = 'Category: ' + trend.category_name;
-		}
-
 		if(trend.description) {
 			var trendDescription = document.getElementById('trend-description');
 			trendDescription.innerText = trend.description.text;
 		} else {
 			var trendDescription = document.getElementById('trend-description');
 			trendDescription.innerText = 'There is no description for this trend yet';
+		}
+
+		if(trend.place_name) {
+			var trendLocation = document.getElementById('trend-location');
+			trendLocation.innerText = 'This trend comes from ' + trend.place_name;
+		} else {
+			var trendLocation = document.getElementById('trend-description');
+			trendLocation.innerText = 'There is no location associated to this trend';
 		}
 
 		var trendTweets = document.getElementById('trend-tweets');
