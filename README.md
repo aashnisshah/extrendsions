@@ -1,7 +1,7 @@
 # extrendsions
 A chrome extension showing the latest trends, with some information on why they are trends
 
-This is a simple chrome plugin that displays a randomly selected top trend, then displays that information.
+This is a simple chrome plugin that displays a randomly selected top trend, then displays that information. The trends are pulled from the WhatTheTrend api, which gets them from Twitter's API. It currently pulls in the top ten trends from all over the world, and where possible, will include a description on why that trend is trending.
 
 ##How to Use the Plugin
 1. Download this project
